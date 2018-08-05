@@ -31,7 +31,11 @@ void Tuio2Dump::tuioAdd(TuioObject *tobj) {
 
 void Tuio2Dump::tuioUpdate(TuioObject *tobj) {
 	if(tobj->containsTuioToken()) std::cout << "set tok " << tobj->getTuioToken()->getSessionID() << std::endl;
-	if(tobj->containsTuioPointer()) std::cout << "set ptr " << tobj->getTuioPointer()->getSessionID() << std::endl;
+	if (tobj->containsTuioPointer()) { 
+		float x = tobj->getTuioPointer()->getPosition().getX();
+		float y = tobj->getTuioPointer()->getPosition().getY();
+		std::cout << "set ptr " << tobj->getTuioPointer()->getSessionID() << "x: " << x << " y: " << y << std::endl;
+	}
 	if(tobj->containsTuioBounds()) std::cout << "set bnd " << tobj->getTuioBounds()->getSessionID() << std::endl;
 	if(tobj->containsTuioSymbol()) std::cout << "set sym " << tobj->getTuioSymbol()->getSessionID() << std::endl;
 	//std::cout << "set obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ") "<< tobj->getX() << " " << tobj->getY() << " " << tobj->getAngle() << " " << tobj->getMotionSpeed() << " " << tobj->getRotationSpeed() << " " << tobj->getMotionAccel() << " " << tobj->getRotationAccel() << std::endl;	
