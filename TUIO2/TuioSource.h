@@ -132,7 +132,7 @@ namespace TUIO2 {
         void setSourceString(std::string src_string) {
             
 			if (src_string.length()==0) return;
-            char *data = strdup(src_string.c_str());
+            char *data = _strdup(src_string.c_str());
 
             char *name_inst = strtok(data, "@");
 

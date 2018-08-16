@@ -286,7 +286,7 @@ void TuioManager::removeTuioPointer(TuioPointer *tptr) {
         
             for (std::list<TuioObject*>::iterator iter=tobjList.begin(); iter != tobjList.end(); iter++) {
                 if ((*iter)->containsTuioPointer()) {
-                    int pointerID = (*iter)->getTuioPointer()->getPointerID();
+                    int pointerID = static_cast<unsigned int>((*iter)->getTuioPointer()->getPointerID());
                     if (pointerID>maxPointerID) maxPointerID=pointerID;
                 }
             }

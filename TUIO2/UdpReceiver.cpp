@@ -34,7 +34,7 @@ static DWORD WINAPI ClientThreadFunc( LPVOID obj )
 UdpReceiver::UdpReceiver(int port):locked (false) {
 	try {
 		socket = new UdpListeningReceiveSocket(IpEndpointName( IpEndpointName::ANY_ADDRESS, port ), this );
-	} catch (std::exception &e) {
+	} catch (std::exception) {
 		std::cerr << "could not bind to UDP port " << port << std::endl;
 		socket = NULL;
 	}
